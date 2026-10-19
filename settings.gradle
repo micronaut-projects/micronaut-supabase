@@ -6,13 +6,13 @@ pluginManagement {
 }
 
 plugins {
-    id 'io.micronaut.build.shared.settings' version '8.0.1'
+    id 'io.micronaut.build.shared.settings' version '8.1.5'
 }
 
 rootProject.name = 'project-template-parent'
 
-include 'project-template'
-include 'project-template-bom'
+include 'micronaut-supabase'
+include 'micronaut-supabase-bom'
 
 enableFeaturePreview 'TYPESAFE_PROJECT_ACCESSORS'
 
