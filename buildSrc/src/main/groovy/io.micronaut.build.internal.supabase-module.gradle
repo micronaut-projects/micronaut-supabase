@@ -2,3 +2,28 @@ plugins {
     id 'io.micronaut.build.internal.supabase-base'
     id "io.micronaut.build.internal.module"
 }
+
+micronautBuild {
+    // New module: there is no previously published release to compare against.
+    binaryCompatibility {
+        enabled = false
+    }
+}
+dependencies {
+    testAnnotationProcessor(mn.micronaut.inject.java)
+    testImplementation(mnTest.micronaut.test.junit5)
+    testImplementation(mnTest.junit.jupiter.params)
+    testImplementation(mnTest.junit.platform.suite)
+    testImplementation(mnTest.junit.platform.launcher)
+    testRuntimeOnly(mnTest.junit.jupiter.engine)
+    testImplementation(mnLogging.logback.classic)
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+micronautBuild {
+    descriptor {
+        parentModuleId = "io.micronaut.supabase:micronaut-supabase"
+    }
+}
